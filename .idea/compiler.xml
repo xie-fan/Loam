@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="loam-common-web" />
+        <module name="loam-common-mybatis" />
+        <module name="loam-common-core" />
+        <module name="loam-common-mongodb" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
