@@ -11,14 +11,13 @@
     <modules>
         <module>loam-common</module>
         <module>loam-auth</module>
-        <module>loam-auth/auth-api</module>
         <module>loam-gateway</module>
         <module>loam-system</module>
     </modules>
 
     <properties>
         <!-- 项目版本 -->
-        <base.version>${revision}</base.version>
+        <base.version>0.0.1</base.version>
         <revision>${base.version}</revision>
 
         <!-- jdk编译版本 -->

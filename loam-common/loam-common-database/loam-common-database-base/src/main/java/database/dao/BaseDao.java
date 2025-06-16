@@ -1,4 +1,4 @@
-package org.loam.database.dao;
+package database.dao;
 
 import org.loam.common.core.bean.entity.BaseEntity;
 

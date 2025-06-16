@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/loam-auth/auth-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-auth/auth-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-auth/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-auth/auth-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-common/loam-common-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-common/loam-common-auth/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-common/loam-common-database/loam-common-database-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-common/loam-common-database/loam-common-database-base/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-database/loam-common-mongodb/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-database/loam-common-mongodb/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-database/loam-common-mybatis/src/main/java" charset="UTF-8" />
@@ -13,6 +23,14 @@
     <file url="file://$PROJECT_DIR$/loam-common/loam-common-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/system-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/system-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/system-servvice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/loam-system/system-servvice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

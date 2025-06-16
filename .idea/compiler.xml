@@ -8,9 +8,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="loam-common-web" />
         <module name="loam-common-mybatis" />
-        <module name="loam-common-core" />
+        <module name="auth-service" />
+        <module name="system-api" />
+        <module name="loam-common-database-base" />
         <module name="loam-common-mongodb" />
+        <module name="loam-gateway" />
+        <module name="loam-common-core" />
+        <module name="loam-common-auth" />
+        <module name="system-servvice" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth-api" target="24" />
+    </bytecodeTargetLevel>
   </component>
 </project>
