@@ -15,6 +15,7 @@
         <module>loam-common-core</module>
         <module>loam-common-database</module>
         <module>loam-common-web</module>
+        <module>loam-common-auth</module>
     </modules>
 
     <properties>

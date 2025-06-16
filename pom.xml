@@ -9,16 +9,16 @@
     <version>${revision}</version>
     <packaging>pom</packaging>
     <modules>
-<!--        <module>loam-gateway</module>-->
-<!--        <module>loam-auth</module>-->
-<!--        <module>loam-module</module>-->
-<!--        <module>loam-starter</module>-->
         <module>loam-common</module>
+        <module>loam-auth</module>
+        <module>loam-auth/auth-api</module>
+        <module>loam-gateway</module>
+        <module>loam-system</module>
     </modules>
 
     <properties>
         <!-- 项目版本 -->
-        <base.version>0.0.1</base.version>
+        <base.version>${revision}</base.version>
         <revision>${base.version}</revision>
 
         <!-- jdk编译版本 -->
@@ -126,41 +126,41 @@
             </dependency>
 
             <!--            self-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>loam-common-core</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>loam-common-mysql</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>system-api</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>loam-common-auth</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>loam-common-cache</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>auth-api</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
-<!--            <dependency>-->
-<!--                <groupId>org.loam</groupId>-->
-<!--                <artifactId>loam-common-web</artifactId>-->
-<!--                <version>${base.version}</version>-->
-<!--            </dependency>-->
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-core</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-database</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>system-api</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-auth</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-cache</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>auth-api</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-web</artifactId>
+                <version>${base.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

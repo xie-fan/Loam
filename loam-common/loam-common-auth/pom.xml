@@ -9,22 +9,12 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>loam-common-web</artifactId>
+    <artifactId>loam-common-auth</artifactId>
 
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.loam</groupId>
-            <artifactId>loam-common-database</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.loam</groupId>
-            <artifactId>loam-common-core</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

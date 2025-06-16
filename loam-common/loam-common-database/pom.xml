@@ -10,7 +10,9 @@
     </parent>
 
     <artifactId>loam-common-database</artifactId>
-    <packaging>pom</packaging>
+
+    <packaging>jar</packaging>
+
     <modules>
         <module>loam-common-mybatis</module>
         <module>loam-common-mongodb</module>
@@ -22,4 +24,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.loam</groupId>
+            <artifactId>loam-common-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>

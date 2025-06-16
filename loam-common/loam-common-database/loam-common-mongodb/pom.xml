@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.loam</groupId>
         <artifactId>loam-common-database</artifactId>
-        <version>0.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>loam-common-mongodb</artifactId>

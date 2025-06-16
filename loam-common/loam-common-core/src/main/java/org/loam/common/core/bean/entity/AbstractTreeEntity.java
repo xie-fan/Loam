@@ -2,7 +2,8 @@ package org.loam.common.core.bean.entity;
 
 import java.util.List;
 
-public class BaseTreeEntity<T> extends BaseEntity<T> {
+public class AbstractTreeEntity<T> extends AbstractBeanEntity<T>{
+
 
     protected List<T> children;
 
@@ -13,4 +14,5 @@ public class BaseTreeEntity<T> extends BaseEntity<T> {
     public void setChildren(List<T> children) {
         this.children = children;
     }
+
 }
