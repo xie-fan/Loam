@@ -35,6 +35,9 @@
         <!-- lombok -->
         <lombok.version>1.18.36</lombok.version>
 
+        <!-- mybatis -->
+        <mybatis.version>3.0.4</mybatis.version>
+
         <!-- mybatis-plus -->
         <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
 
@@ -102,7 +105,11 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>${apache-commons-lang3.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
             <!-- Jackson Core -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -133,6 +140,11 @@
             <dependency>
                 <groupId>org.loam</groupId>
                 <artifactId>loam-common-database</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-database-base</artifactId>
                 <version>${base.version}</version>
             </dependency>
             <dependency>
