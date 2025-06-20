@@ -38,6 +38,9 @@
         <!-- mybatis -->
         <mybatis.version>3.0.4</mybatis.version>
 
+        <!-- lombok -->
+        <lombok.version>1.18.32</lombok.version>
+
         <!-- mybatis-plus -->
         <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
 
@@ -117,6 +120,12 @@
                 <version>${jackson.version}</version>
             </dependency>
 
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
             <!-- Jackson Databind -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
