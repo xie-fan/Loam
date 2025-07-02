@@ -40,4 +40,10 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         userMapper.deleteById(id);
     }
+
+    @Override
+    public List<User> getListByPage(User user, int pageNum, int pageSize) {
+        com.github.pagehelper.PageHelper.startPage(pageNum, pageSize);
+        return userMapper.selectList(user);
+    }
 }

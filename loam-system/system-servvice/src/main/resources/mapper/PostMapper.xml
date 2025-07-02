@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.loam.system.mapper.PostMapper">
+
+    <resultMap id="postResultMap" type="org.loam.system.bean.entity.Post">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="responsibility" column="responsibility"/>
+        <result property="departId" column="depart_id"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="lastModifier" column="lastModifier"/>
+        <result property="lastModifyTime" column="last_modify_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+    </resultMap>
+
+    <sql id="selectPostVo">
+        select id, name, code, responsibility, depart_id, create_time, update_time, create_by, update_by, remark, del_flag
+        from sys_post
+    </sql>
+
+    <select id="selectById" resultMap="postResultMap">
+        <include refid="selectPostVo"/>
+        where id = #{id} and del_flag = 0
+    </select>
+
+    <select id="selectList" resultMap="postResultMap">
+        <include refid="selectPostVo"/>
+        <where>
+            <if test="name != null and name != ''">
+                AND name like concat('%', #{name}, '%')
+            </if>
+            <if test="code != null and code != ''">
+                AND code = #{code}
+            </if>
+            <if test="departId != null">
+                AND depart_id = #{departId}
+            </if>
+            and del_flag = 0
+        </where>
+    </select>
+
+    <insert id="insertPost" parameterType="org.loam.system.bean.entity.Post">
+        insert into sys_post (
+        <if test="name != null and name != ''">name,</if>
+        <if test="code != null and code != ''">code,</if>
+        <if test="responsibility != null and responsibility != ''">responsibility,</if>
+        <if test="departId != null">depart_id,</if>
+        create_time,
+        create_by
+        )values(
+        <if test="name != null and name != ''">#{name},</if>
+        <if test="code != null and code != ''">#{code},</if>
+        <if test="responsibility != null and responsibility != ''">#{responsibility},</if>
+        <if test="departId != null">#{departId},</if>
+        sysdate(),
+        'admin'
+        )
+    </insert>
+
+    <update id="updatePost" parameterType="org.loam.system.bean.entity.Post">
+        update sys_post
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="code != null and code != ''">
+                code = #{code},
+            </if>
+            <if test="responsibility != null and responsibility != ''">
+                responsibility = #{responsibility},
+            </if>
+            <if test="departId != null">
+                depart_id = #{departId},
+            </if>
+            update_time = sysdate(),
+            update_by = 'admin'
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="deleteById" parameterType="int">
+        update sys_post set del_flag = 1 where id = #{id}
+    </update>
+
+</mapper>

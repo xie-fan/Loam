@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.loam.system.mapper.DepartmentMapper">
+
+    <resultMap id="departmentResultMap" type="org.loam.system.bean.entity.Department">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="orderNum" column="order_num"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="lastModifier" column="lastModifier"/>
+        <result property="lastModifyTime" column="last_modify_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+    </resultMap>
+
+    <sql id="selectDepartmentVo">
+        select id, name, code, phone, email, order_num, create_time, update_time, create_by, update_by, remark, del_flag
+        from sys_department
+    </sql>
+
+    <select id="selectById" resultMap="departmentResultMap">
+        <include refid="selectDepartmentVo"/>
+        where id = #{id} and del_flag = 0
+    </select>
+
+    <select id="selectList" resultMap="departmentResultMap">
+        <include refid="selectDepartmentVo"/>
+        <where>
+            <if test="name != null and name != ''">
+                AND name like concat('%', #{name}, '%')
+            </if>
+            <if test="code != null and code != ''">
+                AND code = #{code}
+            </if>
+            and del_flag = 0
+        </where>
+    </select>
+
+    <insert id="insertDepartment" parameterType="org.loam.system.bean.entity.Department">
+        insert into sys_department (
+        <if test="name != null and name != ''">name,</if>
+        <if test="code != null and code != ''">code,</if>
+        <if test="phone != null and phone != ''">phone,</if>
+        <if test="email != null and email != ''">email,</if>
+        <if test="orderNum != null">order_num,</if>
+        create_time,
+        create_by
+        )values(
+        <if test="name != null and name != ''">#{name},</if>
+        <if test="code != null and code != ''">#{code},</if>
+        <if test="phone != null and phone != ''">#{phone},</if>
+        <if test="email != null and email != ''">#{email},</if>
+        <if test="orderNum != null">#{orderNum},</if>
+        sysdate(),
+        'admin'
+        )
+    </insert>
+
+    <update id="updateDepartment" parameterType="org.loam.system.bean.entity.Department">
+        update sys_department
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="code != null and code != ''">
+                code = #{code},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="orderNum != null">
+                order_num = #{orderNum},
+            </if>
+            update_time = sysdate(),
+            update_by = 'admin'
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="deleteById" parameterType="int">
+        update sys_department set del_flag = 1 where id = #{id}
+    </update>
+
+</mapper>

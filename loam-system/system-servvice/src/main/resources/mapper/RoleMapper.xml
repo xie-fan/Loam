@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.loam.system.mapper.RoleMapper">
+
+    <resultMap id="roleResultMap" type="org.loam.system.bean.entity.Role">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="roleKey" column="role_key"/>
+        <result property="status" column="status"/>
+        <result property="orderNum" column="order_num"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="lastModifier" column="lastModifier"/>
+        <result property="lastModifyTime" column="last_modify_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+    </resultMap>
+
+    <sql id="selectRoleVo">
+        select id, name, role_key, status, order_num, create_time, update_time, create_by, update_by, remark, del_flag
+        from sys_role
+    </sql>
+
+    <select id="selectById" resultMap="roleResultMap">
+        <include refid="selectRoleVo"/>
+        where id = #{id} and del_flag = 0
+    </select>
+
+    <select id="selectList" resultMap="roleResultMap">
+        <include refid="selectRoleVo"/>
+        <where>
+            <if test="name != null and name != ''">
+                AND name like concat('%', #{name}, '%')
+            </if>
+            <if test="roleKey != null and roleKey != ''">
+                AND role_key = #{roleKey}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+            and del_flag = 0
+        </where>
+    </select>
+
+    <insert id="insertRole" parameterType="org.loam.system.bean.entity.Role">
+        insert into sys_role (
+        <if test="name != null and name != ''">name,</if>
+        <if test="roleKey != null and roleKey != ''">role_key,</if>
+        <if test="status != null">status,</if>
+        <if test="orderNum != null">order_num,</if>
+        create_time,
+        create_by
+        )values(
+        <if test="name != null and name != ''">#{name},</if>
+        <if test="roleKey != null and roleKey != ''">#{roleKey},</if>
+        <if test="status != null">#{status},</if>
+        <if test="orderNum != null">#{orderNum},</if>
+        sysdate(),
+        'admin'
+        )
+    </insert>
+
+    <update id="updateRole" parameterType="org.loam.system.bean.entity.Role">
+        update sys_role
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="roleKey != null and roleKey != ''">
+                role_key = #{roleKey},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="orderNum != null">
+                order_num = #{orderNum},
+            </if>
+            update_time = sysdate(),
+            update_by = 'admin'
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="deleteById" parameterType="int">
+        update sys_role set del_flag = 1 where id = #{id}
+    </update>
+
+</mapper>

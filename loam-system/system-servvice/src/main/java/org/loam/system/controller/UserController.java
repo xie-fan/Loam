@@ -25,6 +25,11 @@ public class UserController {
         return DataSet.success(userService.getList(user));
     }
 
+    @GetMapping("/listByPage")
+    public DataSet<List<User>> getListByPage(User user, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        return DataSet.success(userService.getListByPage(user, pageNum, pageSize));
+    }
+
     @PostMapping
     public DataSet<User> insertUser(@RequestBody User user) {
         return DataSet.success(userService.insertUser(user));
