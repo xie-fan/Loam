@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.loam.system.mapper.UserMapper">
+    <resultMap id="userResultMap" type="org.loam.system.bean.entity.User">
+        <result property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="sex" column="sex"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time" jdbcType="datetime" javaType="java.time.LocalDateTime"/>
+        <result property="lastModifier" column="lastModifier"/>
+        <result property="lastModifyTime" column="last_modify_time" jdbcType="datetime" javaType="java.time.LocalDateTime"/>
+    </resultMap>
+
+    <sql id="selectUserVo">
+        select id, account, name, password, sex, phone, email, create_time, update_time, create_by, update_by, remark, del_flag
+        from sys_user
+    </sql>
+
+    <select id="selectById" resultMap="userResultMap">
+        <include refid="selectUserVo"/>
+        where id = #{id} and del_flag = 0
+    </select>
+
+    <select id="selectList" resultMap="userResultMap">
+        <include refid="selectUserVo"/>
+        <where>
+            <if test="account != null and account != ''">
+                AND account = #{account}
+            </if>
+            <if test="name != null and name != ''">
+                AND name like concat('%', #{name}, '%')
+            </if>
+            <if test="phone != null and phone != ''">
+                AND phone = #{phone}
+            </if>
+            and del_flag = 0
+        </where>
+    </select>
+
+    <insert id="insertUser" parameterType="org.loam.system.bean.entity.User">
+        insert into sys_user (
+        <if test="account != null and account != ''">account,</if>
+        <if test="name != null and name != ''">name,</if>
+        <if test="password != null and password != ''">password,</if>
+        <if test="sex != null and sex != ''">sex,</if>
+        <if test="phone != null and phone != ''">phone,</if>
+        <if test="email != null and email != ''">email,</if>
+        create_time,
+        create_by
+        )values(
+        <if test="account != null and account != ''">#{account},</if>
+        <if test="name != null and name != ''">#{name},</if>
+        <if test="password != null and password != ''">#{password},</if>
+        <if test="sex != null and sex != ''">#{sex},</if>
+        <if test="phone != null and phone != ''">#{phone},</if>
+        <if test="email != null and email != ''">#{email},</if>
+        sysdate(),
+        'admin'
+        )
+    </insert>
+
+    <update id="updateUser" parameterType="org.loam.system.bean.entity.User">
+        update sys_user
+        <set>
+            <if test="account != null and account != ''">
+                account = #{account},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            update_time = sysdate(),
+            update_by = 'admin'
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="deleteById" parameterType="int">
+        update sys_user set del_flag = 1 where id = #{id}
+    </update>
+
+</mapper>
