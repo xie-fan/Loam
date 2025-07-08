@@ -1,0 +1,713 @@
+mode: rule
+mixed-port: 7897
+allow-lan: true
+log-level: info
+ipv6: true
+external-controller: 127.0.0.1:9097
+secret: set-your-secret
+unified-delay: true
+external-controller-cors:
+  allow-private-network: true
+  allow-origins:
+  - tauri://localhost
+  - http://tauri.localhost
+  - https://yacd.metacubex.one
+  - https://metacubex.github.io
+  - https://board.zash.run.place
+geodata-mode: true
+dns:
+  enable: true
+  listen: :53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  prefer-h3: false
+  respect-rules: false
+  use-hosts: false
+  use-system-hosts: false
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - '*.arpa'
+  - time.*.com
+  - ntp.*.com
+  - time.*.com
+  - +.market.xiaomi.com
+  - localhost.ptlogin2.qq.com
+  - '*.msftncsi.com'
+  - www.msftconnecttest.com
+  default-nameserver:
+  - 223.6.6.6
+  - 8.8.8.8
+  nameserver:
+  - 8.8.8.8
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+  fallback:
+  - https://dns.alidns.com/dns-query
+  - https://dns.google/dns-query
+  - https://cloudflare-dns.com/dns-query
+  nameserver-policy: {}
+  proxy-server-nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+  direct-nameserver: []
+  direct-nameserver-follow-policy: false
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+    - 0.0.0.0/32
+    domain:
+    - +.google.com
+    - +.facebook.com
+    - +.youtube.com
+geo-auto-update: true
+geodata-loader: standard
+geox-url:
+  geoip: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+  geosite: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+  mmdb: https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+  asn: https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb
+tun:
+  auto-detect-interface: true
+  auto-route: true
+  device: Mihomo
+  dns-hijack:
+  - any:53
+  mtu: 1500
+  stack: system
+  strict-route: false
+  enable: false
+geo-update-interval: 24
+proxies:
+- name: 233boy-reality-178.157.51.160-1
+  type: vless
+  server: 178.157.51.160
+  port: 55601
+  uuid: d494826c-d043-4056-974c-7587fe978a5e
+  tls: true
+  client-fingerprint: chrome
+  servername: www.paypal.com
+  network: tcp
+  reality-opts:
+    public-key: Bq-A-Ht9ye6K4lI4OB-pBQQgky0nvNBRAc0_Td1z-F8
+  tfo: false
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  udp: true
+- name: 233boy-reality-146.235.222.181-1
+  type: vless
+  server: 146.235.222.181
+  port: 26340
+  uuid: 7e4eafd6-d71e-45bf-9354-ef0a3813ccc3
+  tls: true
+  client-fingerprint: chrome
+  servername: www.ebay.com
+  network: tcp
+  reality-opts:
+    public-key: T9vZa9vtllZaW5kinE2ennxFp09RWUoUltCabG1-lgw
+  tfo: false
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  udp: true
+- name: 233boy-reality-146.235.222.181-2
+  type: vless
+  server: 146.235.222.181
+  port: 44054
+  uuid: 1e756ddc-c740-45a6-8c21-9b29fdac4adb
+  tls: true
+  client-fingerprint: chrome
+  servername: aws.amazon.com
+  network: tcp
+  reality-opts:
+    public-key: QNnS8p-Oydz5zQ6LwFT1Js_PXiWQV2QhlY-5P6yMdlU
+  tfo: false
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  udp: true
+- name: 233boy-hysteria2-146.235.222.181
+  type: hysteria2
+  server: 146.235.222.181
+  port: 37657
+  password: 61aa89d4-d36e-4bc8-877e-fcf6bbdaf5ca
+  auth: 61aa89d4-d36e-4bc8-877e-fcf6bbdaf5ca
+  skip-cert-verify: true
+  udp: true
+- name: 233boy-hysteria2-178.157.51.160
+  type: hysteria2
+  server: 178.157.51.160
+  port: 29883
+  password: c43ff5cf-affa-49ec-bed1-85dd32fe1457
+  auth: c43ff5cf-affa-49ec-bed1-85dd32fe1457
+  skip-cert-verify: true
+  udp: true
+- name: 233boy-reality-178.157.51.160-2
+  type: vless
+  server: 178.157.51.160
+  port: 12873
+  uuid: 5a12b833-205f-4676-839f-0660463336b0
+  tls: true
+  client-fingerprint: chrome
+  servername: aws.amazon.com
+  network: tcp
+  reality-opts:
+    public-key: 9uRCY0i9G3TXytLQ2mA4puU5J6PwUAfjXCNYl-RMPV8
+  tfo: false
+  skip-cert-verify: false
+  flow: xtls-rprx-vision
+  udp: true
+- name: webshare
+  server: ''
+  port: 12345
+  type: socks5
+  username: ''
+  password: ''
+  tls: false
+  skip-cert-verify: true
+  udp: true
+  dialer-proxy: ⚙️ 节点选择
+proxy-providers:
+  p1:
+    type: http
+    url: https://google.com
+    interval: 86400
+    proxy: 🔰 模式选择
+    override:
+      additional-prefix: p1 |
+proxy-groups:
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🔰 模式选择
+  type: select
+  proxies:
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: ⚙️ 节点选择
+  type: select
+  proxies:
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg
+  exclude-filter: ^(?:webshare)$
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🕊️ 落地节点
+  type: select
+  proxies:
+  - webshare
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/openwrt.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: ♻️ 延迟选优
+  type: url-test
+  tolerance: 50
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/speed.svg
+  exclude-filter: ^(?:webshare)$
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🚑 故障转移
+  type: fallback
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/ambulance.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: ⚖️ 负载均衡(散列)
+  type: load-balance
+  strategy: consistent-hashing
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/merry_go.svg
+  exclude-filter: ^(?:webshare)$
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: ☁️ 负载均衡(轮询)
+  type: load-balance
+  strategy: round-robin
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/balance.svg
+  exclude-filter: ^(?:webshare)$
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🌍 国外媒体
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/youtube.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 💸 ChatGPT-Gemini-XAI-Perplexity
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  exclude-filter: (?i)港|hk|hongkong|hong kong|俄|ru|russia|澳|macao
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/chatgpt.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 💵 Claude
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/claude.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🪙 Bybit
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/link.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🅿️ PikPak
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/link.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 📲 电报消息
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/telegram.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 📢 谷歌服务
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/google.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🍎 苹果服务
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/apple.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: Ⓜ️ 微软服务
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - 🔗 全局直连
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/microsoft.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🥰 广告过滤
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/bug.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🔗 全局直连
+  type: select
+  proxies:
+  - DIRECT
+  - ⚙️ 节点选择
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/link.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: ❌ 全局拦截
+  type: select
+  proxies:
+  - REJECT
+  - DIRECT
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/block.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🐬 自定义直连
+  type: select
+  include-all: true
+  proxies:
+  - 🔗 全局直连
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/unknown.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🐳 自定义代理
+  type: select
+  include-all: true
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/openwrt.svg
+- interval: 0
+  timeout: 3000
+  url: https://www.google.com/generate_204
+  lazy: true
+  max-failed-times: 3
+  hidden: false
+  name: 🐟 漏网之鱼
+  type: select
+  proxies:
+  - 🔰 模式选择
+  - ⚙️ 节点选择
+  - 🕊️ 落地节点
+  - ♻️ 延迟选优
+  - 🚑 故障转移
+  - ⚖️ 负载均衡(散列)
+  - ☁️ 负载均衡(轮询)
+  - 🔗 全局直连
+  include-all: true
+  icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/fish.svg
+rule-providers:
+  reject:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt
+    path: ./ruleset/loyalsoldier/reject.yaml
+  icloud:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt
+    path: ./ruleset/loyalsoldier/icloud.yaml
+  apple:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt
+    path: ./ruleset/loyalsoldier/apple.yaml
+  google:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt
+    path: ./ruleset/loyalsoldier/google.yaml
+  proxy:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt
+    path: ./ruleset/loyalsoldier/proxy.yaml
+  direct:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt
+    path: ./ruleset/loyalsoldier/direct.yaml
+  private:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt
+    path: ./ruleset/loyalsoldier/private.yaml
+  gfw:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt
+    path: ./ruleset/loyalsoldier/gfw.yaml
+  tld-not-cn:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: domain
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt
+    path: ./ruleset/loyalsoldier/tld-not-cn.yaml
+  telegramcidr:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt
+    path: ./ruleset/loyalsoldier/telegramcidr.yaml
+  cncidr:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt
+    path: ./ruleset/loyalsoldier/cncidr.yaml
+  lancidr:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: ipcidr
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt
+    path: ./ruleset/loyalsoldier/lancidr.yaml
+  applications:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt
+    path: ./ruleset/loyalsoldier/applications.yaml
+  openai:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/openai.yaml
+    path: ./ruleset/MetaCubeX/openai.yaml
+  bybit:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/bybit.yaml
+    path: ./ruleset/MetaCubeX/bybit.yaml
+  pikpak:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/pikpak.yaml
+    path: ./ruleset/MetaCubeX/pikpak.yaml
+  anthropic:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/anthropic.yaml
+    path: ./ruleset/MetaCubeX/anthropic.yaml
+  google-gemini:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/google-gemini.yaml
+    path: ./ruleset/MetaCubeX/google-gemini.yaml
+  xai:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/xai.yaml
+    path: ./ruleset/MetaCubeX/xai.yaml
+  perplexity:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/perplexity.yaml
+    path: ./ruleset/MetaCubeX/perplexity.yaml
+  microsoft:
+    type: http
+    format: yaml
+    interval: 86400
+    behavior: classical
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/classical/microsoft.yaml
+    path: ./ruleset/MetaCubeX/microsoft.yaml
+rules:
+- PROCESS-NAME,steam.exe,🐬 自定义直连
+- DOMAIN-SUFFIX,immersivetranslate.com,🐳 自定义代理
+- DOMAIN-SUFFIX,googleapis.cn,🔰 模式选择
+- DOMAIN-SUFFIX,gstatic.com,🔰 模式选择
+- DOMAIN-SUFFIX,xn--ngstr-lra8j.com,🔰 模式选择
+- DOMAIN-SUFFIX,github.io,🔰 模式选择
+- DOMAIN,v2rayse.com,🔰 模式选择
+- RULE-SET,openai,💸 ChatGPT-Gemini-XAI-Perplexity
+- RULE-SET,pikpak,🅿️ PikPak
+- RULE-SET,bybit,🪙 Bybit
+- RULE-SET,anthropic,💵 Claude
+- RULE-SET,google-gemini,💸 ChatGPT-Gemini-XAI-Perplexity
+- RULE-SET,xai,💸 ChatGPT-Gemini-XAI-Perplexity
+- RULE-SET,perplexity,💸 ChatGPT-Gemini-XAI-Perplexity
+- RULE-SET,applications,🔗 全局直连
+- RULE-SET,private,🔗 全局直连
+- RULE-SET,reject,🥰 广告过滤
+- RULE-SET,microsoft,Ⓜ️ 微软服务
+- RULE-SET,icloud,🍎 苹果服务
+- RULE-SET,apple,🍎 苹果服务
+- RULE-SET,google,📢 谷歌服务
+- RULE-SET,proxy,🔰 模式选择
+- RULE-SET,gfw,🔰 模式选择
+- RULE-SET,tld-not-cn,🔰 模式选择
+- RULE-SET,direct,🔗 全局直连
+- RULE-SET,lancidr,🔗 全局直连,no-resolve
+- RULE-SET,cncidr,🔗 全局直连,no-resolve
+- RULE-SET,telegramcidr,📲 电报消息,no-resolve
+- GEOIP,LAN,🔗 全局直连,no-resolve
+- GEOIP,CN,🔗 全局直连,no-resolve
+- MATCH,🐟 漏网之鱼

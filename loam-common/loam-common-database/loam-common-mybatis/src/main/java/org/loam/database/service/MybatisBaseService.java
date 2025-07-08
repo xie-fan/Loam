@@ -1,4 +1,4 @@
-package database.service;
+package org.loam.database.service;
 
 import org.loam.common.core.bean.entity.BaseEntity;
 

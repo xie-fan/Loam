@@ -7,9 +7,10 @@
         <groupId>org.loam</groupId>
         <artifactId>loam-system</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>system-servvice</artifactId>
+    <artifactId>system-service</artifactId>
 
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
@@ -27,12 +28,14 @@
             <artifactId>system-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.loam</groupId>
+            <artifactId>loam-common-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
+            <groupId>org.loam</groupId>
+            <artifactId>loam-common-mybatis</artifactId>
         </dependency>
+
+
     </dependencies>
 </project>

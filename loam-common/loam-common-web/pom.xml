@@ -7,6 +7,7 @@
         <groupId>org.loam</groupId>
         <artifactId>loam-common</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>loam-common-web</artifactId>
@@ -19,11 +20,11 @@
     <dependencies>
         <dependency>
             <groupId>org.loam</groupId>
-            <artifactId>loam-common-database</artifactId>
+            <artifactId>loam-common-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.loam</groupId>
-            <artifactId>loam-common-core</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 

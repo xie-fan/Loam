@@ -7,13 +7,14 @@
         <groupId>org.loam</groupId>
         <artifactId>loam</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>loam-system</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>system-api</module>
-        <module>system-servvice</module>
+        <module>system-service</module>
     </modules>
     <properties>
         <maven.compiler.source>24</maven.compiler.source>

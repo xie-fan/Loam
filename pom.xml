@@ -17,8 +17,9 @@
 
     <properties>
         <!-- 项目版本 -->
-        <base.version>0.0.1</base.version>
-        <revision>${base.version}</revision>
+        <base.version>${revision}</base.version>
+<!--        <revision>${base.version}</revision>-->
+        <revision>0.0.1</revision>
 
         <!-- jdk编译版本 -->
         <maven.compiler.source>24</maven.compiler.source>
@@ -38,8 +39,6 @@
         <!-- mybatis -->
         <mybatis.version>3.0.4</mybatis.version>
 
-        <!-- lombok -->
-        <lombok.version>1.18.32</lombok.version>
 
         <!-- mybatis-plus -->
         <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
@@ -120,12 +119,6 @@
                 <version>${jackson.version}</version>
             </dependency>
 
-            <!-- lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
             <!-- Jackson Databind -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -181,9 +174,49 @@
                 <artifactId>loam-common-web</artifactId>
                 <version>${base.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-mybatis</artifactId>
+                <version>${base.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <build>
+        <pluginManagement>
+            <plugins>
+<!--                <plugin>-->
+<!--                    <groupId>org.codehaus.mojo</groupId>-->
+<!--                    <artifactId>flatten-maven-plugin</artifactId>-->
+<!--                    <version>1.5.0</version> <configuration>-->
+<!--                    <updatePomFile>true</updatePomFile> <flattenMode>resolveCiFriendliesOnly</flattenMode>-->
+<!--                </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <id>flatten</id>-->
+<!--                            <phase>process-resources</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>flatten</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                        <execution>-->
+<!--                            <id>flatten.clean</id>-->
+<!--                            <phase>clean</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>clean</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+            </plugins>
+        </pluginManagement>
 
+        <plugins>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>flatten-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
 
 </project>

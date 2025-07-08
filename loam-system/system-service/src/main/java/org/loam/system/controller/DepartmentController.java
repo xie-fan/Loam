@@ -3,6 +3,7 @@ package org.loam.system.controller;
 import jakarta.annotation.Resource;
 import org.loam.common.core.bean.vo.DataSet;
 import org.loam.common.core.bean.vo.Message;
+import org.loam.database.utils.PageUtils;
 import org.loam.system.bean.entity.Department;
 import org.loam.system.service.DepartmentService;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ public class DepartmentController {
 
     @GetMapping("/listByPage")
     public DataSet<List<Department>> getListByPage(Department department, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        PageUtils.
         return DataSet.success(departmentService.getListByPage(department, pageNum, pageSize));
     }
 
