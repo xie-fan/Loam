@@ -27,6 +27,11 @@
         where id = #{id} and del_flag = 0
     </select>
 
+    <select id="selectByAccount" resultMap="userResultMap">
+        <include refid="selectUserVo"/>
+        where account = #{account}
+    </select>
+
     <select id="selectList" resultMap="userResultMap">
         <include refid="selectUserVo"/>
         <where>

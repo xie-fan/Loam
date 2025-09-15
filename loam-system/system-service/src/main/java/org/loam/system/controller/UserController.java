@@ -20,6 +20,11 @@ public class UserController {
         return DataSet.success(userService.getUser(id));
     }
 
+    @GetMapping("/account")
+    public DataSet<User> getUserByAccount(@RequestParam String account) {
+        return DataSet.success(userService.getUserByAccount(account));
+    }
+
     @GetMapping("/list")
     public DataSet<List<User>> getList(User user) {
         return DataSet.success(userService.getList(user));

@@ -28,7 +28,6 @@ public class DepartmentController {
 
     @GetMapping("/listByPage")
     public DataSet<List<Department>> getListByPage(Department department, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
-        PageUtils.
         return DataSet.success(departmentService.getListByPage(department, pageNum, pageSize));
     }
 

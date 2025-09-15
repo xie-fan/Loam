@@ -12,10 +12,23 @@
 
     <artifactId>auth-service</artifactId>
 
-    <properties>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.loam</groupId>
+            <artifactId>auth-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.loam</groupId>
+            <artifactId>loam-common-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.loam</groupId>
+            <artifactId>loam-common-web-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.loam</groupId>
+            <artifactId>system-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,7 +1,10 @@
 package org.loam.common.core.bean.vo;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.loam.common.core.constant.HttpConstant;
 import org.loam.common.core.enums.HttpStatus;
+
+import java.util.Optional;
 
 public class DataSet<T> extends Message{
     protected T data;
@@ -41,5 +44,13 @@ public class DataSet<T> extends Message{
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public boolean isEmpty(){
+        return ObjectUtils.isEmpty(data);
+    }
+
+    public boolean isPresent(){
+        return ObjectUtils.isNotEmpty(data);
     }
 }

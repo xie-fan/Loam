@@ -1,12 +1,16 @@
 package org.loam.system.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.loam.system.bean.entity.User;
 
 import java.util.List;
 
+@Mapper
 public interface UserMapper {
 
     User selectById(int id);
+
+    User selectByAccount(String account);
 
     List<User> selectList(User user);
 

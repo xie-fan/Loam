@@ -13,6 +13,7 @@
         <module>loam-auth</module>
         <module>loam-gateway</module>
         <module>loam-system</module>
+        <module>loam-test</module>
     </modules>
 
     <properties>
@@ -34,7 +35,7 @@
         <pagehelper.boot.version>2.1.0</pagehelper.boot.version>
 
         <!-- lombok -->
-        <lombok.version>1.18.36</lombok.version>
+        <lombok.version>1.18.40</lombok.version>
 
         <!-- mybatis -->
         <mybatis.version>3.0.4</mybatis.version>
@@ -45,6 +46,9 @@
 
         <!-- jackson -->
         <jackson.version>2.18.2</jackson.version>
+
+        <!-- redisson -->
+        <redisson.version>3.23.5</redisson.version>
 
         <!-- apache -->
         <apache-commons-lang3.version>3.17.0</apache-commons-lang3.version>
@@ -133,6 +137,13 @@
                 <version>${jackson.version}</version>
             </dependency>
 
+            <!-- redisson  -->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
             <!--            self-->
             <dependency>
                 <groupId>org.loam</groupId>
@@ -176,6 +187,16 @@
             </dependency>
             <dependency>
                 <groupId>org.loam</groupId>
+                <artifactId>loam-common-web-api</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
+                <artifactId>loam-common-web-service</artifactId>
+                <version>${base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.loam</groupId>
                 <artifactId>loam-common-mybatis</artifactId>
                 <version>${base.version}</version>
             </dependency>
@@ -208,6 +229,20 @@
 <!--                        </execution>-->
 <!--                    </executions>-->
 <!--                </plugin>-->
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>1.18.40</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
 

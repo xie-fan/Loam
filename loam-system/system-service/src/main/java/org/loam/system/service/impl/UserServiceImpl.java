@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByAccount(String account) {
+        return userMapper.selectByAccount(account);
+    }
+
+    @Override
     public User insertUser(User user) {
         userMapper.insertUser(user);
         return user;

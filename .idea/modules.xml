@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/loam-common-database.iml" filepath="$PROJECT_DIR$/loam-common-database.iml" />
-      <module fileurl="file://$PROJECT_DIR$/loam-common-mybatis.iml" filepath="$PROJECT_DIR$/loam-common-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loam-common/loam-common-web/loam-common-web-service/loam-common-web-service.iml" filepath="$PROJECT_DIR$/loam-common/loam-common-web/loam-common-web-service/loam-common-web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loam-system/system-servvice/system-servvice.iml" filepath="$PROJECT_DIR$/loam-system/system-servvice/system-servvice.iml" />
     </modules>
   </component>
 </project>

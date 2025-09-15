@@ -4,6 +4,7 @@ import jakarta.annotation.Resource;
 import org.loam.system.bean.entity.Department;
 import org.loam.system.mapper.DepartmentMapper;
 import org.loam.system.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    @Resource
+    @Autowired
     private DepartmentMapper departmentMapper;
 
     @Override
