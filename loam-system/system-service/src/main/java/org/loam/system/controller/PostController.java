@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/post")
+@RestController
+@RequestMapping("/post")
 public class PostController {
 
     @Resource

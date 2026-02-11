@@ -1,0 +1,74 @@
+#databaseName: ds0
+dataSources:
+  ds0:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    standardJdbcUrl: jdbc:mysql://192.168.6.212:3306/loam_01
+    url: jdbc:mysql://192.168.6.212:3306/loam_01
+    username: root
+    password: 123456
+  ds1:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    standardJdbcUrl: jdbc:mysql://192.168.6.212:3306/loam_02
+    url: jdbc:mysql://192.168.6.212:3306/loam_02
+    username: root
+    password: 123456
+  ds2:
+    dataSourceClassName: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    standardJdbcUrl: jdbc:mysql://192.168.6.212:3306/loam_03
+    url: jdbc:mysql://192.168.6.212:3306/loam_03
+    username: root
+    password: 123456
+rules:
+- !SHARDING
+  tables:
+    sys_user:
+      actualDataNodes: ds${0..2}.sys_user
+      databaseStrategy:
+        standard:
+          shardingColumn: id
+          shardingAlgorithmName: simpleShardingAlgorithms
+      keyGenerateStrategy: # 分布式序列策略
+        column: id
+        keyGeneratorName: snowflake
+  defaultDatabaseStrategy:
+    none:
+  defaultTableStrategy:
+    none:
+  shardingAlgorithms:
+    simpleShardingAlgorithms:
+      type: INLINE
+      props:
+        algorithm-expression: ds${id % 3}
+  keyGenerators:
+    snowflake:
+      type: SNOWFLAKE
+#  encryptors:
+#    aes_encryptor:
+#      type: AES
+#      props:
+#        aes-key-value: 123456abc
+#- !READWRITE_SPLITTING
+#  dataSourceGroups:
+#    read_ds:
+#      writeDataSourceName: ds0
+#      readDataSourceNames:
+#        - ds1
+#        - ds2
+#      loadBalancerName: random
+#  loadBalancers:
+#    random:
+#      type: RANDOM
+#      props:
+#encryptors:
+#  tables:
+#    t_user:
+#      columns:
+#        password:
+#          cipher-column: password
+#          encryptor-name: aes_encryptor
+
+props:
+  sql-show: true

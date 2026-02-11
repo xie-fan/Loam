@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/department")
+@RestController
+@RequestMapping("/department")
 public class DepartmentController {
 
     @Resource

@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/role")
+@RestController
+@RequestMapping("/role")
 public class RoleController {
 
     @Resource

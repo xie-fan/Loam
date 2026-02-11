@@ -12,19 +12,24 @@
         <result property="phone" column="phone"/>
         <result property="email" column="email"/>
         <result property="creator" column="creator"/>
-        <result property="createTime" column="create_time" jdbcType="datetime" javaType="java.time.LocalDateTime"/>
-        <result property="lastModifier" column="lastModifier"/>
-        <result property="lastModifyTime" column="last_modify_time" jdbcType="datetime" javaType="java.time.LocalDateTime"/>
+        <result property="createTime" column="created_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="updated_by" column="updated_by"/>
+        <result property="lastModifyTime" column="updated_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
     <sql id="selectUserVo">
-        select id, account, name, password, sex, phone, email, create_time, update_time, create_by, update_by, remark, del_flag
+        select id, account, name, password, sex, phone, email, created_time, update_time, created_by, update_by, remark, del_flag
         from sys_user
     </sql>
 
     <select id="selectById" resultMap="userResultMap">
         <include refid="selectUserVo"/>
         where id = #{id} and del_flag = 0
+    </select>
+
+    <select id="selectByAccount" resultMap="userResultMap">
+        <include refid="selectUserVo"/>
+        where account = #{account}
     </select>
 
     <select id="selectList" resultMap="userResultMap">
@@ -43,23 +48,27 @@
         </where>
     </select>
 
-    <insert id="insertUser" parameterType="org.loam.system.bean.entity.User">
+    <insert id="insertUser" parameterType="org.loam.system.bean.entity.User" useGeneratedKeys="true" keyColumn="id">
         insert into sys_user (
+        <if test="id != null and id != ''">id,</if>
         <if test="account != null and account != ''">account,</if>
         <if test="name != null and name != ''">name,</if>
         <if test="password != null and password != ''">password,</if>
         <if test="sex != null and sex != ''">sex,</if>
         <if test="phone != null and phone != ''">phone,</if>
         <if test="email != null and email != ''">email,</if>
-        create_time,
-        create_by
+        <if test="delFlag != null and delFlag != ''">del_flag,</if>
+        created_time,
+        created_by
         )values(
+        <if test="id != null and id != ''">#{id},</if>
         <if test="account != null and account != ''">#{account},</if>
         <if test="name != null and name != ''">#{name},</if>
         <if test="password != null and password != ''">#{password},</if>
         <if test="sex != null and sex != ''">#{sex},</if>
         <if test="phone != null and phone != ''">#{phone},</if>
         <if test="email != null and email != ''">#{email},</if>
+        <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
         sysdate(),
         'admin'
         )

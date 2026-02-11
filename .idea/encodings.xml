@@ -39,6 +39,14 @@
     <file url="file://$PROJECT_DIR$/loam-system/system-servvice/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-test/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/loam-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/yolo-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/yolo-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/yolo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/loam-yolo/yolo-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

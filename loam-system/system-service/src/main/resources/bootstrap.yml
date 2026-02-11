@@ -1,0 +1,37 @@
+server:
+  servlet:
+    context-path: /system
+  port: 11001
+
+nacos:
+  namespace: public
+  group: DEFAULT_GROUP
+  service-address: 192.168.6.212:8848
+  username: nacos
+  password: nacos
+
+spring:
+  application:
+    name: system-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.6.212:8848
+        service: system-service
+      config:
+        server-addr: 192.168.6.212:8848
+        file-extension: yml
+        namespace: public
+        group: DEFAULT_GROUP
+  config:
+    import:
+      - "optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}"
+      - "optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}"
+      - "optional:nacos:shardingsphere.yml"
+  datasource:
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    url: jdbc:shardingsphere:classpath:shardingsphere.yml
+#    url: jdbc:shardingsphere:nacos:shardingsphere.yml?serverAddr=${nacos.service-address}&namespace=${nacos.namespace}&group=${nacos.group}&username=${nacos.username}&password=${nacos.password}
+

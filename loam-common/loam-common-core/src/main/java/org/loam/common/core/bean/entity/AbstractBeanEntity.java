@@ -9,7 +9,7 @@ public abstract class AbstractBeanEntity<T> extends BaseEntity<T>{
 
     protected LocalDateTime createTime;
 
-    protected String lastModifier;
+    protected String updated_by;
 
     protected LocalDateTime lastModifyTime;
 
@@ -38,11 +38,11 @@ public abstract class AbstractBeanEntity<T> extends BaseEntity<T>{
     }
 
     public String getLastModifier() {
-        return lastModifier;
+        return updated_by;
     }
 
-    public void setLastModifier(String lastModifier) {
-        this.lastModifier = lastModifier;
+    public void setLastModifier(String updated_by) {
+        this.updated_by = updated_by;
     }
 
     public LocalDateTime getLastModifyTime() {

@@ -66,7 +66,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 | `delFlag`    | `Integer` | Deletion flag (0 for active, 1 for deleted). |
 | `creator`    | `String`  | User who created the record.              |
 | `createTime` | `LocalDateTime` | Timestamp of record creation.             |
-| `lastModifier` | `String`  | User who last modified the record.        |
+| `updated_by` | `String`  | User who last modified the record.        |
 | `lastModifyTime` | `LocalDateTime` | Timestamp of last modification.           |
 | `remark`     | `String`  | Additional remarks.                       |
 
@@ -112,7 +112,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 - **HTTP Method:** `POST`
 - **Path:** `/user`
 - **Description:** Creates a new user.
-- **Request Body:** `User` object (excluding `id`, `delFlag`, `creator`, `createTime`, `lastModifier`, `lastModifyTime`, `remark` as they are typically set by the system).
+- **Request Body:** `User` object (excluding `id`, `delFlag`, `creator`, `createTime`, `updated_by`, `lastModifyTime`, `remark` as they are typically set by the system).
 - **Response:** `DataSet<User>` (the created user object with system-generated fields)
 
 ##### Update User
@@ -143,7 +143,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 | `delFlag`    | `Integer` | Deletion flag (0 for active, 1 for deleted). |
 | `creator`    | `String`  | User who created the record.              |
 | `createTime` | `LocalDateTime` | Timestamp of record creation.             |
-| `lastModifier` | `String`  | User who last modified the record.        |
+| `updated_by` | `String`  | User who last modified the record.        |
 | `lastModifyTime` | `LocalDateTime` | Timestamp of last modification.           |
 | `remark`     | `String`  | Additional remarks.                       |
 
@@ -291,7 +291,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 | `delFlag`    | `Integer` | Deletion flag (0 for active, 1 for deleted). |
 | `creator`    | `String`  | User who created the record.              |
 | `createTime` | `LocalDateTime` | Timestamp of record creation.             |
-| `lastModifier` | `String`  | User who last modified the record.        |
+| `updated_by` | `String`  | User who last modified the record.        |
 | `lastModifyTime` | `LocalDateTime` | Timestamp of last modification.           |
 | `remark`     | `String`  | Additional remarks.                       |
 
@@ -366,7 +366,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 | `delFlag`    | `Integer` | Deletion flag (0 for active, 1 for deleted). |
 | `creator`    | `String`  | User who created the record.              |
 | `createTime` | `LocalDateTime` | Timestamp of record creation.             |
-| `lastModifier` | `String`  | User who last modified the record.        |
+| `updated_by` | `String`  | User who last modified the record.        |
 | `lastModifyTime` | `LocalDateTime` | Timestamp of last modification.           |
 | `remark`     | `String`  | Additional remarks.                       |
 
@@ -445,7 +445,7 @@ Extends `Message` and includes a `data` field for responses that return specific
 | `delFlag`    | `Integer` | Deletion flag (0 for active, 1 for deleted). |
 | `creator`    | `String`  | User who created the record.              |
 | `createTime` | `LocalDateTime` | Timestamp of record creation.             |
-| `lastModifier` | `String`  | User who last modified the record.        |
+| `updated_by` | `String`  | User who last modified the record.        |
 | `lastModifyTime` | `LocalDateTime` | Timestamp of last modification.           |
 | `remark`     | `String`  | Additional remarks.                       |
 

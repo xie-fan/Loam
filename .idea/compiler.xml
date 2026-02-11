@@ -15,6 +15,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
+        <module name="yolo-service" />
         <module name="loam-common-mybatis" />
         <module name="loam-common-database-base" />
         <module name="system-api" />
@@ -25,6 +26,7 @@
         <module name="loam-common-web-service" />
         <module name="auth-service" />
         <module name="auth-api" />
+        <module name="yolo-api" />
         <module name="loam-common-auth" />
         <module name="loam-common-core" />
         <module name="loam-test" />

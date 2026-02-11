@@ -11,13 +11,13 @@
         <result property="responsibility" column="responsibility"/>
         <result property="departId" column="depart_id"/>
         <result property="creator" column="creator"/>
-        <result property="createTime" column="create_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
-        <result property="lastModifier" column="lastModifier"/>
-        <result property="lastModifyTime" column="last_modify_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="createTime" column="created_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="updated_by" column="updated_by"/>
+        <result property="lastModifyTime" column="updated_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
     <sql id="selectPostVo">
-        select id, name, code, responsibility, depart_id, create_time, update_time, create_by, update_by, remark, del_flag
+        select id, name, code, responsibility, depart_id, created_time, update_time, created_by, update_by, remark, del_flag
         from sys_post
     </sql>
 
@@ -48,8 +48,8 @@
         <if test="code != null and code != ''">code,</if>
         <if test="responsibility != null and responsibility != ''">responsibility,</if>
         <if test="departId != null">depart_id,</if>
-        create_time,
-        create_by
+        created_time,
+        created_by
         )values(
         <if test="name != null and name != ''">#{name},</if>
         <if test="code != null and code != ''">#{code},</if>
