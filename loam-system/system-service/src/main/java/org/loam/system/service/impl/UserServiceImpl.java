@@ -15,7 +15,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User getUser(int id) {
+    public User getUser(Long id) {
         return userMapper.selectById(id);
     }
 
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public void deleteUser(Long id) {
         userMapper.deleteById(id);
     }
 

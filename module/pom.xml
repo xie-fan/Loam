@@ -6,17 +6,15 @@
     <parent>
         <groupId>org.loam</groupId>
         <artifactId>loam</artifactId>
-        <version>0.0.1</version>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>module</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>loam-yolo</module>
-    </modules>
     <properties>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

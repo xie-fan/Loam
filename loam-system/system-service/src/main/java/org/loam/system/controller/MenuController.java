@@ -17,7 +17,7 @@ public class MenuController {
     private MenuService menuService;
 
     @GetMapping("/{id}")
-    public DataSet<Menu> getMenu(@PathVariable int id) {
+    public DataSet<Menu> getMenu(@PathVariable Long id) {
         return DataSet.success(menuService.getMenu(id));
     }
 
@@ -37,7 +37,7 @@ public class MenuController {
     }
 
     @DeleteMapping("/{id}")
-    public Message deleteMenu(@PathVariable int id){
+    public Message deleteMenu(@PathVariable Long id){
         menuService.deleteMenu(id);
         return Message.success();
     }

@@ -19,12 +19,12 @@ public class UserCallBackFactory implements FallbackFactory<UserRemoteService> {
 
     @Override
     public UserRemoteService create(Throwable cause) {
-        log.error(RemoteErrorConstants.ERROR_MESSAGE, "userRemoteService", cause);
+        log.error(RemoteErrorConstants.ERROR_MESSAGE, "system-service:/system/user", cause);
 
         return new UserRemoteService(){
 
             @Override
-            public DataSet<User> getUser(int id) {
+            public DataSet<User> getUser(Long id) {
                 return DataSet.error(null, "查询用户失败");
             }
 
@@ -54,7 +54,7 @@ public class UserCallBackFactory implements FallbackFactory<UserRemoteService> {
             }
 
             @Override
-            public Message deleteUser(int id) {
+            public Message deleteUser(Long id) {
                 return Message.error("删除用户失败");
             }
         };

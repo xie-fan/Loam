@@ -17,7 +17,7 @@ public class PostController {
     private PostService postService;
 
     @GetMapping("/{id}")
-    public DataSet<Post> getPost(@PathVariable int id) {
+    public DataSet<Post> getPost(@PathVariable Long id) {
         return DataSet.success(postService.getPost(id));
     }
 
@@ -42,7 +42,7 @@ public class PostController {
     }
 
     @DeleteMapping("/{id}")
-    public Message deletePost(@PathVariable int id){
+    public Message deletePost(@PathVariable Long id){
         postService.deletePost(id);
         return Message.success();
     }

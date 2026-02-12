@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RoleMapper {
 
-    Role selectById(int id);
+    Role selectById(Long id);
 
     List<Role> selectList(Role role);
 
@@ -14,5 +14,5 @@ public interface RoleMapper {
 
     void updateRole(Role role);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

@@ -15,7 +15,7 @@ public class PostServiceImpl implements PostService {
     private PostMapper postMapper;
 
     @Override
-    public Post getPost(int id) {
+    public Post getPost(Long id) {
         return postMapper.selectById(id);
     }
 
@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(int id) {
+    public void deletePost(Long id) {
         postMapper.deleteById(id);
     }
 

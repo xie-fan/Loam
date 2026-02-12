@@ -5,7 +5,7 @@ import org.loam.system.bean.entity.Department;
 import java.util.List;
 
 public interface DepartmentService {
-    Department getDepartment(int id);
+    Department getDepartment(Long id);
 
     List<Department> getList(Department department);
 
@@ -13,7 +13,7 @@ public interface DepartmentService {
 
     Department updateDepartment(Department department);
 
-    void deleteDepartment(int id);
+    void deleteDepartment(Long id);
 
     List<Department> getListByPage(Department department, int pageNum, int pageSize);
 }

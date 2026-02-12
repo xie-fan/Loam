@@ -1,0 +1,18 @@
+server:
+  port: 11000
+
+spring:
+  application:
+    name: loam-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.6.212:8848}
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.6.212:8848}
+        file-extension: yml
+        namespace: public
+        group: DEFAULT_GROUP
+  config:
+    import:
+      - "optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}"

@@ -5,7 +5,7 @@ import org.loam.system.bean.entity.User;
 import java.util.List;
 
 public interface UserService {
-    User getUser(int id);
+    User getUser(Long id);
 
     User getUserByAccount(String username);
 
@@ -15,7 +15,7 @@ public interface UserService {
 
     User updateUser(User user);
 
-    void deleteUser(int id);
+    void deleteUser(Long id);
 
     List<User> getListByPage(User user, int pageNum, int pageSize);
 }

@@ -11,10 +11,10 @@
         <result property="sex" column="sex"/>
         <result property="phone" column="phone"/>
         <result property="email" column="email"/>
-        <result property="creator" column="creator"/>
+        <result property="creator" column="created_by"/>
         <result property="createTime" column="created_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
-        <result property="updated_by" column="updated_by"/>
-        <result property="lastModifyTime" column="updated_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="updated_by" column="update_by"/>
+        <result property="lastModifyTime" column="update_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
     <sql id="selectUserVo">
@@ -29,7 +29,7 @@
 
     <select id="selectByAccount" resultMap="userResultMap">
         <include refid="selectUserVo"/>
-        where account = #{account}
+        where account = #{account} and del_flag = 0
     </select>
 
     <select id="selectList" resultMap="userResultMap">
@@ -48,27 +48,27 @@
         </where>
     </select>
 
-    <insert id="insertUser" parameterType="org.loam.system.bean.entity.User" useGeneratedKeys="true" keyColumn="id">
+    <insert id="insertUser" parameterType="org.loam.system.bean.entity.User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         insert into sys_user (
-        <if test="id != null and id != ''">id,</if>
+        <if test="id != null">id,</if>
         <if test="account != null and account != ''">account,</if>
         <if test="name != null and name != ''">name,</if>
         <if test="password != null and password != ''">password,</if>
         <if test="sex != null and sex != ''">sex,</if>
         <if test="phone != null and phone != ''">phone,</if>
         <if test="email != null and email != ''">email,</if>
-        <if test="delFlag != null and delFlag != ''">del_flag,</if>
+        <if test="delFlag != null">del_flag,</if>
         created_time,
         created_by
         )values(
-        <if test="id != null and id != ''">#{id},</if>
+        <if test="id != null">#{id},</if>
         <if test="account != null and account != ''">#{account},</if>
         <if test="name != null and name != ''">#{name},</if>
         <if test="password != null and password != ''">#{password},</if>
         <if test="sex != null and sex != ''">#{sex},</if>
         <if test="phone != null and phone != ''">#{phone},</if>
         <if test="email != null and email != ''">#{email},</if>
-        <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+        <if test="delFlag != null">#{delFlag},</if>
         sysdate(),
         'admin'
         )
@@ -101,7 +101,7 @@
         where id = #{id}
     </update>
 
-    <update id="deleteById" parameterType="int">
+    <update id="deleteById" parameterType="long">
         update sys_user set del_flag = 1 where id = #{id}
     </update>
 

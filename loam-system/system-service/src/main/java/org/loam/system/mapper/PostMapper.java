@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PostMapper {
 
-    Post selectById(int id);
+    Post selectById(Long id);
 
     List<Post> selectList(Post post);
 
@@ -14,5 +14,5 @@ public interface PostMapper {
 
     void updatePost(Post post);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

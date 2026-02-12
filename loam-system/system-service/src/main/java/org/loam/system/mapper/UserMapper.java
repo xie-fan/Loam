@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    User selectById(int id);
+    User selectById(Long id);
 
     User selectByAccount(String account);
 
@@ -18,5 +18,5 @@ public interface UserMapper {
 
     void updateUser(User user);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

@@ -15,7 +15,7 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
-    public Menu getMenu(int id) {
+    public Menu getMenu(Long id) {
         return menuMapper.selectById(id);
     }
 
@@ -37,7 +37,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public void deleteMenu(int id) {
+    public void deleteMenu(Long id) {
         menuMapper.deleteById(id);
     }
 }

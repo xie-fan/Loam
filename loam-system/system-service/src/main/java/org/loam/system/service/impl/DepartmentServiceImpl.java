@@ -16,7 +16,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     private DepartmentMapper departmentMapper;
 
     @Override
-    public Department getDepartment(int id) {
+    public Department getDepartment(Long id) {
         return departmentMapper.selectById(id);
     }
 
@@ -38,7 +38,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public void deleteDepartment(int id) {
+    public void deleteDepartment(Long id) {
         departmentMapper.deleteById(id);
     }
 

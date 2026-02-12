@@ -1,11 +1,13 @@
 package org.loam.auth.entity.vo;
 
+import jakarta.validation.constraints.NotNull;
 import org.loam.system.bean.entity.User;
 
 public class RegisterBody {
 
     private String token;
 
+    @NotNull(message = "用户信息不能为空")
     private User user;
 
     public String getToken() {

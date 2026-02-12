@@ -3,7 +3,6 @@ package org.loam.system.controller;
 import jakarta.annotation.Resource;
 import org.loam.common.core.bean.vo.DataSet;
 import org.loam.common.core.bean.vo.Message;
-import org.loam.database.utils.PageUtils;
 import org.loam.system.bean.entity.Department;
 import org.loam.system.service.DepartmentService;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @GetMapping("/{id}")
-    public DataSet<Department> getDepartment(@PathVariable int id) {
+    public DataSet<Department> getDepartment(@PathVariable Long id) {
         return DataSet.success(departmentService.getDepartment(id));
     }
 
@@ -43,7 +42,7 @@ public class DepartmentController {
     }
 
     @DeleteMapping("/{id}")
-    public Message deleteDepartment(@PathVariable int id){
+    public Message deleteDepartment(@PathVariable Long id){
         departmentService.deleteDepartment(id);
         return Message.success();
     }

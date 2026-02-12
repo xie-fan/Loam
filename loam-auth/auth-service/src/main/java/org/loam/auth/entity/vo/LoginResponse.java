@@ -26,8 +26,29 @@ public class LoginResponse {
     }
     public static LoginResponse of(User user){
         LoginResponse loginResponse = new LoginResponse();
-        loginResponse.user = user;
-        loginResponse.token = TokenUtil.createToken(user.getName(), user.getPassword());
+        loginResponse.user = sanitizeUser(user);
+        String account = user == null || user.getAccount() == null ? "" : user.getAccount();
+        String userId = user == null || user.getId() == null ? "" : user.getId().toString();
+        loginResponse.token = TokenUtil.createToken(account, userId);
         return loginResponse;
+    }
+
+    private static User sanitizeUser(User user) {
+        if (user == null) {
+            return null;
+        }
+        User safeUser = new User();
+        safeUser.setId(user.getId());
+        safeUser.setAccount(user.getAccount());
+        safeUser.setName(user.getName());
+        safeUser.setSex(user.getSex());
+        safeUser.setPhone(user.getPhone());
+        safeUser.setEmail(user.getEmail());
+        safeUser.setDelFlag(user.getDelFlag());
+        safeUser.setCreator(user.getCreator());
+        safeUser.setCreateTime(user.getCreateTime());
+        safeUser.setLastModifier(user.getLastModifier());
+        safeUser.setLastModifyTime(user.getLastModifyTime());
+        return safeUser;
     }
 }

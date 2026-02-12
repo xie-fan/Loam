@@ -19,12 +19,12 @@ public class DepartmentCallBackFactory implements FallbackFactory<DepartmentRemo
 
     @Override
     public DepartmentRemoteService create(Throwable cause) {
-        log.error(RemoteErrorConstants.ERROR_MESSAGE, "departmentRemoteService", cause);
+        log.error(RemoteErrorConstants.ERROR_MESSAGE, "system-service:/system/department", cause);
 
         return new DepartmentRemoteService(){
 
             @Override
-            public DataSet<Department> getDepartment(int id) {
+            public DataSet<Department> getDepartment(Long id) {
                 return DataSet.error(null, "查询部门失败");
             }
 
@@ -49,7 +49,7 @@ public class DepartmentCallBackFactory implements FallbackFactory<DepartmentRemo
             }
 
             @Override
-            public Message deleteDepartment(int id) {
+            public Message deleteDepartment(Long id) {
                 return Message.error("删除部门失败");
             }
         };

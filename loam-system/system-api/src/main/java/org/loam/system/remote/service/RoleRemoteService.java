@@ -4,30 +4,33 @@ import org.loam.common.core.bean.vo.DataSet;
 import org.loam.common.core.bean.vo.Message;
 import org.loam.system.bean.entity.Role;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "roleRemoteService")
+@FeignClient(name = "system-service", path = "/system/role")
 public interface RoleRemoteService {
 
 
     @GetMapping("/{id}")
-    public DataSet<Role> getRole(@PathVariable int id);
+    DataSet<Role> getRole(@PathVariable Long id);
 
     @GetMapping("/list")
-    public DataSet<List<Role>> getList(Role role);
+    DataSet<List<Role>> getList(@SpringQueryMap Role role);
 
     @GetMapping("/listByPage")
-    public DataSet<List<Role>> getListByPage(Role role, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize);
+    DataSet<List<Role>> getListByPage(@SpringQueryMap Role role,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize);
 
     @PostMapping
-    public DataSet<Role> insertRole(@RequestBody Role role);
+    DataSet<Role> insertRole(@RequestBody Role role);
 
     @PutMapping
-    public DataSet<Role> updateRole(@RequestBody Role role);
+    DataSet<Role> updateRole(@RequestBody Role role);
 
     @DeleteMapping("/{id}")
-    public Message deleteRole(@PathVariable int id);
+    Message deleteRole(@PathVariable Long id);
 
 }

@@ -5,7 +5,7 @@ import org.loam.system.bean.entity.Menu;
 import java.util.List;
 
 public interface MenuService {
-    Menu getMenu(int id);
+    Menu getMenu(Long id);
 
     List<Menu> getList(Menu menu);
 
@@ -13,5 +13,5 @@ public interface MenuService {
 
     Menu updateMenu(Menu menu);
 
-    void deleteMenu(int id);
+    void deleteMenu(Long id);
 }

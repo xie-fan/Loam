@@ -17,7 +17,7 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping("/{id}")
-    public DataSet<Role> getRole(@PathVariable int id) {
+    public DataSet<Role> getRole(@PathVariable Long id) {
         return DataSet.success(roleService.getRole(id));
     }
 
@@ -42,7 +42,7 @@ public class RoleController {
     }
 
     @DeleteMapping("/{id}")
-    public Message deleteRole(@PathVariable int id){
+    public Message deleteRole(@PathVariable Long id){
         roleService.deleteRole(id);
         return Message.success();
     }

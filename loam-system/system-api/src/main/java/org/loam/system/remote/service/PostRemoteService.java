@@ -4,30 +4,33 @@ import org.loam.common.core.bean.vo.DataSet;
 import org.loam.common.core.bean.vo.Message;
 import org.loam.system.bean.entity.Post;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "postRemoteService")
+@FeignClient(name = "system-service", path = "/system/post")
 public interface PostRemoteService {
 
 
     @GetMapping("/{id}")
-    public DataSet<Post> getPost(@PathVariable int id);
+    DataSet<Post> getPost(@PathVariable Long id);
 
     @GetMapping("/list")
-    public DataSet<List<Post>> getList(Post post);
+    DataSet<List<Post>> getList(@SpringQueryMap Post post);
 
     @GetMapping("/listByPage")
-    public DataSet<List<Post>> getListByPage(Post post, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize);
+    DataSet<List<Post>> getListByPage(@SpringQueryMap Post post,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize);
 
     @PostMapping
-    public DataSet<Post> insertPost(@RequestBody Post post);
+    DataSet<Post> insertPost(@RequestBody Post post);
 
     @PutMapping
-    public DataSet<Post> updatePost(@RequestBody Post post);
+    DataSet<Post> updatePost(@RequestBody Post post);
 
     @DeleteMapping("/{id}")
-    public Message deletePost(@PathVariable int id);
+    Message deletePost(@PathVariable Long id);
 
 }

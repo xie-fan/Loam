@@ -17,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/{id}")
-    public DataSet<User> getUser(@PathVariable int id) {
+    public DataSet<User> getUser(@PathVariable Long id) {
         return DataSet.success(userService.getUser(id));
     }
 
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public Message deleteUser(@PathVariable int id){
+    public Message deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
         return Message.success();
     }

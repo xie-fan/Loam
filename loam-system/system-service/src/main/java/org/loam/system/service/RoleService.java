@@ -5,7 +5,7 @@ import org.loam.system.bean.entity.Role;
 import java.util.List;
 
 public interface RoleService {
-    Role getRole(int id);
+    Role getRole(Long id);
 
     List<Role> getList(Role role);
 
@@ -13,7 +13,7 @@ public interface RoleService {
 
     Role updateRole(Role role);
 
-    void deleteRole(int id);
+    void deleteRole(Long id);
 
     List<Role> getListByPage(Role role, int pageNum, int pageSize);
 }

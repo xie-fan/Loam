@@ -10,8 +10,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.loam")
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "org.loam")
 public @interface WebServerApplication {
 }

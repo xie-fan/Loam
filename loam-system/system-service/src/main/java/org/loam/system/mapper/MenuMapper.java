@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MenuMapper {
 
-    Menu selectById(int id);
+    Menu selectById(Long id);
 
     List<Menu> selectList(Menu menu);
 
@@ -14,5 +14,5 @@ public interface MenuMapper {
 
     void updateMenu(Menu menu);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

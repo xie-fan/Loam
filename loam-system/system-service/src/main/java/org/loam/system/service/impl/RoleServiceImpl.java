@@ -15,7 +15,7 @@ public class RoleServiceImpl implements RoleService {
     private RoleMapper roleMapper;
 
     @Override
-    public Role getRole(int id) {
+    public Role getRole(Long id) {
         return roleMapper.selectById(id);
     }
 
@@ -37,7 +37,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public void deleteRole(int id) {
+    public void deleteRole(Long id) {
         roleMapper.deleteById(id);
     }
 

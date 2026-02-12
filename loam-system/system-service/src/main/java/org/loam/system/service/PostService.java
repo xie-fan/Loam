@@ -5,7 +5,7 @@ import org.loam.system.bean.entity.Post;
 import java.util.List;
 
 public interface PostService {
-    Post getPost(int id);
+    Post getPost(Long id);
 
     List<Post> getList(Post post);
 
@@ -13,7 +13,7 @@ public interface PostService {
 
     Post updatePost(Post post);
 
-    void deletePost(int id);
+    void deletePost(Long id);
 
     List<Post> getListByPage(Post post, int pageNum, int pageSize);
 }

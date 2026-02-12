@@ -1,0 +1,25 @@
+server:
+  servlet:
+    context-path: /auth
+  port: 11002
+
+
+spring:
+  application:
+    name: auth-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.6.212:8848}
+        service: auth-service
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.6.212:8848}
+        file-extension: yml
+        namespace: public
+        group: DEFAULT_GROUP
+  config:
+    import:
+      - "optional:nacos:${spring.application.name}.${spring.cloud.nacos.config.file-extension}"
+      - "optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}"

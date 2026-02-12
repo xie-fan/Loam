@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DepartmentMapper {
 
-    Department selectById(int id);
+    Department selectById(Long id);
 
     List<Department> selectList(Department department);
 
@@ -14,5 +14,5 @@ public interface DepartmentMapper {
 
     void updateDepartment(Department department);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

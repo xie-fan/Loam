@@ -11,10 +11,10 @@
         <result property="phone" column="phone"/>
         <result property="email" column="email"/>
         <result property="orderNum" column="order_num"/>
-        <result property="creator" column="creator"/>
+        <result property="creator" column="created_by"/>
         <result property="createTime" column="created_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
-        <result property="updated_by" column="updated_by"/>
-        <result property="lastModifyTime" column="updated_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
+        <result property="updated_by" column="update_by"/>
+        <result property="lastModifyTime" column="update_time" jdbcType="TIMESTAMP" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
     <sql id="selectDepartmentVo">
@@ -84,7 +84,7 @@
         where id = #{id}
     </update>
 
-    <update id="deleteById" parameterType="int">
+    <update id="deleteById" parameterType="long">
         update sys_department set del_flag = 1 where id = #{id}
     </update>
 
